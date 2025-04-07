@@ -60,4 +60,4 @@ Eventure is an Android application that integrates with the Ticketmaster API to 
 3. Submit a pull request
 
 ## License
-[Specify your license here]
+MIT

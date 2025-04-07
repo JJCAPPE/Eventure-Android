@@ -76,7 +76,6 @@ public class EventsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_events, container, false);
 
-        // Initialize views
         editTextSearch = root.findViewById(R.id.edit_text_search);
         editTextLocation = root.findViewById(R.id.edit_text_location);
         inputLayoutLocation = root.findViewById(R.id.input_layout_location);
@@ -131,7 +130,6 @@ public class EventsFragment extends Fragment {
         String keyword = editTextSearch.getText() != null ? editTextSearch.getText().toString() : "";
 
         if (radioCurrentLocation.isChecked()) {
-            // Use current location
             if (hasLocationPermission()) {
                 getCurrentLocationAndSearch(keyword);
             } else {
@@ -203,14 +201,14 @@ public class EventsFragment extends Fragment {
     private void getCurrentLocationAndSearch(String keyword) {
         showProgress();
         
-        // Check if location permissions are granted
+        // Checks if location permissions are granted by android
         if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             hideProgress();
             return;
         }
         
-        // Check if location services are enabled
+        // Check if gps is enabled
         LocationManager locationManager = (LocationManager) requireContext().getSystemService(Context.LOCATION_SERVICE);
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             hideProgress();

@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     private static final String BASE_URL = "https://app.ticketmaster.com/";
-    public static final String API_KEY = BuildConfig.TICKETMASTER_API_KEY; // Loaded from local.properties
+    public static final String API_KEY = BuildConfig.TICKETMASTER_API_KEY; // Loaded from local.properties, make sure to have this set up for local development
     
     private static Retrofit retrofit = null;
     
